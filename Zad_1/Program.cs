@@ -117,13 +117,14 @@ namespace Zad_1
             iloscSamochodow = 0;
         }
         //konstruktor parametryczny:
-        public Osoba(string _imie, string _nazwisko, string _adresZamieszkania)
+        public Osoba(string _imie, string _nazwisko, string _adres, int _iloscSamochodow)
         {
             imie = _imie;
             nazwisko = _nazwisko;
-            adresZamieszkania = _adresZamieszkania;
-            //iloscSamochodow = ;
+            adresZamieszkania = _adres;
+            iloscSamochodow = 0; // póki co 0
         }
+
     }
 
     class Program
