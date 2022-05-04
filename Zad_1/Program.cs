@@ -124,7 +124,15 @@ namespace Zad_1
             adresZamieszkania = _adres;
             iloscSamochodow = 0; // póki co 0
         }
+        //metody klasy:
+        public void DodajSamochod(string nrRejestracyjny) 
+        { 
+        
+        
+        
+        }
 
+        // wlasciwosci klasy:
     }
 
     class Program
