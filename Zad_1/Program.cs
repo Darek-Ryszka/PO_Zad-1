@@ -107,6 +107,17 @@ namespace Zad_1
         private string nazwisko;
         private string adresZamieszkania;
         private static int iloscSamochodow = 0;
+
+        //konstruktor domyslny:
+        public Osoba()
+        {
+            imie = "nieznane";
+            nazwisko = "nieznane";
+            adresZamieszkania = "nieznany";
+            iloscSamochodow = 0;
+        }
+
+
     }
 
     class Program
