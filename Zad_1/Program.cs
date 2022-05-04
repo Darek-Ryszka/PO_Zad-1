@@ -149,23 +149,25 @@ namespace Zad_1
 
         public void UsunSamochod(string nrRejestracyjny)
         {
-            for (int i = 0; i < iloscSamochodow; i++)
+            if (iloscSamochodow == 0)
             {
-                if (iloscSamochodow == 0)
+                Console.WriteLine("Kolekcja samochodów jest pusta.");
+            }
+            else
+            {
+                for (int i = 0; i < iloscSamochodow; i++)
                 {
-                    Console.WriteLine("Kolekcja samochodów jest pusta.");
-                }
+                    if (nrRejestracyjny == Numery[i])
+                    {
+                        Numery[iloscSamochodow - 1] = null;
+                        Console.WriteLine("Usunięto numer rejestracyjny.");
+                        iloscSamochodow -= 1;
+                    }
 
-                else if (nrRejestracyjny == Numery[i])
-                {
-                    Numery[iloscSamochodow - 1] = null;
-                    Console.WriteLine("Usunięto numer rejestracyjny.");
-                    iloscSamochodow -= 1;
-                }
-
-                else if (nrRejestracyjny != Numery[i])
-                {
-                    Console.WriteLine("Nie znaleziono podanego numeru na pozycji: " + i);
+                    else if (nrRejestracyjny != Numery[i])
+                    {
+                        Console.WriteLine("Nie znaleziono podanego numeru na pozycji: " + i);
+                    }
                 }
             }
         }
@@ -232,10 +234,10 @@ namespace Zad_1
             o1.Imie = "Jan";
             o1.Nazwisko = "Kowalski";
             o1.Adres = "Warszawa 13";
-           // o1.DodajSamochod("DW23456");
-           // o1.DodajSamochod("SWD12345");
-           // o1.DodajSamochod("SRB45677");
-            //o1.DodajSamochod("SWD45676");
+            o1.DodajSamochod("DW23456");
+            o1.DodajSamochod("SWD12345");
+            o1.DodajSamochod("SRB45677");
+            o1.DodajSamochod("SWD45676");
 
             o1.WypiszInfo();
 
@@ -244,7 +246,7 @@ namespace Zad_1
             o1.UsunSamochod("SRB45677");
             o1.UsunSamochod("DW23456");
 
-            //o1.UsunSamochod("SWD45677");
+            o1.UsunSamochod("SWD45677");
 
             o1.WypiszInfo();
 
