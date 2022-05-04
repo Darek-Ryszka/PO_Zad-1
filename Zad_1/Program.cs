@@ -13,7 +13,7 @@ namespace Zad_1
         private string numerRejestracyjny;          //ad.1
 
 
-
+        //konstruktor domyslny:
         public Samochod()
         {
             marka = "nieznana";
@@ -22,8 +22,9 @@ namespace Zad_1
             pojemnoscSilnika = 0;
             srednieSpalanie = 0;
             iloscSamochodow = iloscSamochodow + 1;
+            numerRejestracyjny = "nieznany";
         }
-
+        //konstruktor parametryczny:
         public Samochod(string _marka, string _model, int _iloscDrzwi, int _pojemnoscSilnika, double _srednieSpalanie, string _numerRejestracyjny)
         {
             marka = _marka;
@@ -34,7 +35,7 @@ namespace Zad_1
             iloscSamochodow += 1;
             numerRejestracyjny = _numerRejestracyjny;
         }
-
+        //metody klasy:
         private double ObliczSpalanie(double dlugoscTrasy)
         {
             double spalanie = (srednieSpalanie * dlugoscTrasy) / 100;
@@ -61,7 +62,7 @@ namespace Zad_1
         {
             Console.WriteLine("Ilosc samochodów " + iloscSamochodow);
         }
-
+        // wlasciwosci klasy:
         public string Marka
         {
             get { return marka; }
@@ -105,7 +106,7 @@ namespace Zad_1
         private string imie;
         private string nazwisko;
         private string adresZamieszkania;
-        private int iloscSamochodow;
+        private static int iloscSamochodow = 0;
     }
 
     class Program
