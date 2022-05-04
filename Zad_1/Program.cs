@@ -230,8 +230,11 @@ namespace Zad_1
 
             o1.WypiszInfo();
 
-            Console.ReadKey();
+            o1.UsunSamochod("SWD45677");
 
+            o1.WypiszInfo();
+
+            Console.ReadKey();
 
         }
     }
