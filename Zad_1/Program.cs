@@ -141,10 +141,36 @@ namespace Zad_1
             else
             {               
                 Numery[iloscSamochodow] = nrRejestracyjny;
-                Console.WriteLine("Dodano numer do właściciela.");
+                Console.WriteLine("Dodano numer rejestracyjny.");
                 iloscSamochodow += 1;
             }
         
+        }
+
+        public void UsunSamochod(string nrRejestracyjny)
+        {
+            if (iloscSamochodow == 0)
+            {
+                Console.WriteLine("Kolekcja samochodów jest pusta.");
+            }
+            else
+            {
+                Numery[iloscSamochodow - 1] = null;
+                Console.WriteLine("Usunięto numer rejestracyjny.");
+                iloscSamochodow -= 1;
+            }
+        }
+
+        public void WypiszInfo()
+        {
+            Console.WriteLine("Imie: " + imie);
+            Console.WriteLine("Nazwisko: " + nazwisko);
+            Console.WriteLine("Adres zamieszkania: " + adresZamieszkania);
+            for (int i = 1; i <= iloscSamochodow; i++)
+            {
+                Console.WriteLine("Tablica numer: " + i + " :" + Numery[i - 1]);
+
+            }
         }
         // wlasciwosci klasy:
         public string Imie
@@ -200,7 +226,9 @@ namespace Zad_1
             o1.DodajSamochod("SWD12345");
             o1.DodajSamochod("SWD23425");
             o1.DodajSamochod("SWD45677");
-            o1.DodajSamochod("SWD45676");
+            //o1.DodajSamochod("SWD45676");
+
+            o1.WypiszInfo();
 
             Console.ReadKey();
 
