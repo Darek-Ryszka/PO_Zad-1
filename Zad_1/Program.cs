@@ -10,6 +10,7 @@ namespace Zad_1
         private int pojemnoscSilnika;
         private double srednieSpalanie;
         private static int iloscSamochodow = 0;
+        private string numerRejestracyjny;          //ad.1
 
 
 
@@ -23,7 +24,7 @@ namespace Zad_1
             iloscSamochodow = iloscSamochodow + 1;
         }
 
-        public Samochod(string _marka, string _model, int _iloscDrzwi, int _pojemnoscSilnika, double _srednieSpalanie)
+        public Samochod(string _marka, string _model, int _iloscDrzwi, int _pojemnoscSilnika, double _srednieSpalanie, string _numerRejestracyjny)
         {
             marka = _marka;
             model = _model;
@@ -31,6 +32,7 @@ namespace Zad_1
             pojemnoscSilnika = _pojemnoscSilnika;
             srednieSpalanie = _srednieSpalanie;
             iloscSamochodow += 1;
+            numerRejestracyjny = _numerRejestracyjny;
         }
 
         private double ObliczSpalanie(double dlugoscTrasy)
@@ -107,7 +109,7 @@ namespace Zad_1
 
             s1.WpiszInfo();
 
-            Samochod s2 = new Samochod("Fiat", "126p", 2, 650, 6.0);
+            Samochod s2 = new Samochod("Fiat", "126p", 2, 650, 6.0 , "SWD12345");
 
             s2.WpiszInfo();
 
