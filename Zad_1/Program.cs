@@ -54,6 +54,7 @@ namespace Zad_1
             Console.WriteLine("Ilosc Drzwi: " + iloscDrzwi);
             Console.WriteLine("pojemnosc silnika: " + pojemnoscSilnika);
             Console.WriteLine("Srednie spalanie: " + srednieSpalanie);
+            Console.WriteLine("Numer rejestracyjny: " + numerRejestracyjny);
         }
 
         public static void WypiszIloscSamochodow()
@@ -112,6 +113,7 @@ namespace Zad_1
             s1.IloscDrzwi = 2;
             s1.PojemnoscSilnika = 3996;
             s1.SrednieSpalanie = 20;
+            s1.NumerRejestracyjny = "DW23456";
 
             s1.WpiszInfo();
 
