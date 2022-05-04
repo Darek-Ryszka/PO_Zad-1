@@ -99,7 +99,14 @@ namespace Zad_1
         }
 
     }
-
+    
+    public class Osoba
+    {
+        private string imie;
+        private string nazwisko;
+        private string adresZamieszkania;
+        private int iloscSamochodow;
+    }
 
     class Program
     {
