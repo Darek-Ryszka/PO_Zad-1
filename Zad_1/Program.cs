@@ -101,13 +101,14 @@ namespace Zad_1
 
     }
     
-    public class Osoba
+    public class Osoba //: Samochod
     {
         private string imie;
         private string nazwisko;
         private string adresZamieszkania;
         private static int iloscSamochodow = 0;
         private string[] Numery;
+        
         
 
         //konstruktor domyslny:
@@ -117,7 +118,7 @@ namespace Zad_1
             nazwisko = "nieznane";
             adresZamieszkania = "nieznany";
             iloscSamochodow = 0;
-            Numery = null;
+            Numery = new string [3];
             
         }
         //konstruktor parametryczny:
@@ -128,6 +129,7 @@ namespace Zad_1
             adresZamieszkania = _adres;
             iloscSamochodow = 0; // póki co 0
             Numery = new string [3];
+            
         }
         //metody klasy:
         public void DodajSamochod(string nrRejestracyjny) 
@@ -189,6 +191,16 @@ namespace Zad_1
             Console.WriteLine("Koszt przejazdu: " + kosztPrzejazdu);
 
             Samochod.WypiszIloscSamochodow();
+
+            Osoba o1 = new Osoba();
+
+            o1.Imie = "Jan";
+            o1.Nazwisko = "Kowalski";
+            o1.Adres = "Warszawa 13";
+            o1.DodajSamochod("SWD12345");
+            o1.DodajSamochod("SWD23425");
+            o1.DodajSamochod("SWD45677");
+            o1.DodajSamochod("SWD45676");
 
             Console.ReadKey();
 
