@@ -107,6 +107,8 @@ namespace Zad_1
         private string nazwisko;
         private string adresZamieszkania;
         private static int iloscSamochodow = 0;
+        private string[] Numery;
+        
 
         //konstruktor domyslny:
         public Osoba()
@@ -115,6 +117,8 @@ namespace Zad_1
             nazwisko = "nieznane";
             adresZamieszkania = "nieznany";
             iloscSamochodow = 0;
+            Numery = null;
+            
         }
         //konstruktor parametryczny:
         public Osoba(string _imie, string _nazwisko, string _adres, int _iloscSamochodow)
@@ -123,16 +127,42 @@ namespace Zad_1
             nazwisko = _nazwisko;
             adresZamieszkania = _adres;
             iloscSamochodow = 0; // póki co 0
+            Numery = new string [3];
         }
         //metody klasy:
         public void DodajSamochod(string nrRejestracyjny) 
-        { 
-        
-        
+        {
+            if (iloscSamochodow == 3)
+            {
+                Console.WriteLine("Kolekcja samochodów jest pełna");
+            }
+            else
+            {
+                
+                Numery[iloscSamochodow] = nrRejestracyjny;
+
+                iloscSamochodow += 1;
+            }
         
         }
-
         // wlasciwosci klasy:
+        public string Imie
+        {
+            get { return imie; }
+            set { imie = value; }
+        }
+
+        public string Nazwisko
+        {
+            get { return nazwisko; }
+            set { nazwisko = value; }
+        }
+
+        public string Adres
+        {
+            get { return adresZamieszkania; }
+            set { adresZamieszkania = value; }
+        }
     }
 
     class Program
