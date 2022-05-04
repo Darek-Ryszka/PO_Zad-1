@@ -132,15 +132,14 @@ namespace Zad_1
         //metody klasy:
         public void DodajSamochod(string nrRejestracyjny) 
         {
-            if (iloscSamochodow == 3)
+            if (iloscSamochodow >= 3)
             {
-                Console.WriteLine("Kolekcja samochodów jest pełna");
+                Console.WriteLine("Kolekcja samochodów jest pełna.");
             }
             else
-            {
-                
+            {               
                 Numery[iloscSamochodow] = nrRejestracyjny;
-
+                Console.WriteLine("Dodano numer do właściciela.");
                 iloscSamochodow += 1;
             }
         
