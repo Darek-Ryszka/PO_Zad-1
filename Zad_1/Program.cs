@@ -91,6 +91,12 @@ namespace Zad_1
             set { srednieSpalanie = value; }
         }
 
+        public string NumerRejestracyjny
+        {
+            get { return numerRejestracyjny; }
+            set { numerRejestracyjny = value; }
+        }
+
     }
 
 
