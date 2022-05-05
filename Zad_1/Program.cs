@@ -155,15 +155,16 @@ namespace Zad_1
             }
             else
             {
-                for (int i = 0; i < iloscSamochodow; i++)
+                for (int i = 0; i <= iloscSamochodow; i++)
                 {
                     if (nrRejestracyjny == Numery[i])
-                    {
-                        Numery[iloscSamochodow - 1] = null;
-                        Console.WriteLine("Usunięto numer rejestracyjny.");
-                        iloscSamochodow -= 1;
+                    {                       
+                        Numery[i] = null;
+                        Numery[i] = Numery[i + 1];
+                        Console.WriteLine("Usunięto numer rejestracyjny."); 
+                        iloscSamochodow -= 1;                       
                     }
-
+                    
                     else if (nrRejestracyjny != Numery[i])
                     {
                         Console.WriteLine("Nie znaleziono podanego numeru na pozycji: " + i);
@@ -180,7 +181,6 @@ namespace Zad_1
             for (int i = 1; i <= iloscSamochodow; i++)
             {
                 Console.WriteLine("Tablica numer:" + i + " :" + Numery[i - 1]);
-
             }
         }
         // wlasciwosci klasy:
@@ -229,26 +229,34 @@ namespace Zad_1
 
             Samochod.WypiszIloscSamochodow();
 
-            Osoba o1 = new Osoba();
+            Osoba o1 = new Osoba(); //Tworzenie nowego obiektu klasy Osoba
 
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             o1.Imie = "Jan";
             o1.Nazwisko = "Kowalski";
             o1.Adres = "Warszawa 13";
-            o1.DodajSamochod("DW23456");
+            o1.DodajSamochod("DW23456"); //Dodawanie rejestracji do tablicy
             o1.DodajSamochod("SWD12345");
             o1.DodajSamochod("SRB45677");
-            o1.DodajSamochod("SWD45676");
-
-            o1.WypiszInfo();
-
-            o1.UsunSamochod("DW23456");
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            o1.DodajSamochod("SWD45676"); //Próba przepełnienia tablicy
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            o1.WypiszInfo(); //Wypisywanie informacji o właścicielu 
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja 0");
             o1.UsunSamochod("SWD12345");
+            o1.WypiszInfo();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja 1");
+            o1.UsunSamochod("DW23456");
+            o1.WypiszInfo();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja 2");
             o1.UsunSamochod("SRB45677");
+            o1.WypiszInfo();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja 3");
             o1.UsunSamochod("DW23456");
 
-            o1.UsunSamochod("SWD45677");
+            //o1.UsunSamochod("SWD45677");
 
-            o1.WypiszInfo();
+            //o1.WypiszInfo();
 
             Console.ReadKey();
 
