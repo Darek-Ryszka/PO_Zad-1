@@ -173,7 +173,7 @@ namespace Zad_1
                     }                                               // dlatego wcześniej trzeba podmienić indeksy
                     else if (nrRejestracyjny != Numery[i])
                     {                        
-                        Console.WriteLine("Nie znaleziono podanego numeru pod indeksem: " + i);
+                        Console.WriteLine("Nie znaleziono podanego numeru pod indeksem: " + i); //komunitak pomocniczy - do usunięcia w wersji ostatecznej
                     }
                 }
             }
@@ -240,11 +240,14 @@ namespace Zad_1
 
             Samochod.WypiszIloscSamochodow();
 
-            Samochod s3 = new Samochod("BMW", "2000", 3, 800, 8.0, "S5XXX"); //testowy samochód numer 3
-            Samochod s4 = new Samochod("Audi", "A6", 5, 650, 6.0, "DW12345"); //testowy samochód numer 4
+
+            //Zadanie_1
 
             Console.WriteLine("\n\n\n");
             Console.WriteLine("Zadanie 1: \n");
+
+            Samochod s3 = new Samochod("BMW", "2000", 3, 800, 8.0, "S5XXX"); //testowy samochód numer 3
+            Samochod s4 = new Samochod("Audi", "A6", 5, 650, 6.0, "DW12345"); //testowy samochód numer 4
 
             Osoba o1 = new Osoba(); //Tworzenie nowego obiektu klasy Osoba
 
