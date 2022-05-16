@@ -101,7 +101,7 @@ namespace Zad_1
 
     }
     
-    public class Osoba : Samochod
+    public class Osoba 
     {
         private string imie;
         private string nazwisko;
@@ -155,16 +155,22 @@ namespace Zad_1
             else
             {
                 for (int i = 0; i <= iloscSamochodow; i++)
-                {
-                    //if (nrRejestracyjny == Numery[i])
+                {                    
                     if (nrRejestracyjny == Numery[i])
                     {                       
-                        Numery[i] = null;
-                        Numery[i] = Numery[i + 1];
-                        Console.WriteLine("Usunięto numer rejestracyjny."); 
-                        iloscSamochodow -= 1;                       
-                    }
-                    
+                        Numery[i] = null; //znajdujemy wartość którą chcemy usunąć i porównujemy z tablicą w której znajdują się numery rejestracyjne
+                        if (i == 0)       //sprawdzamy pozycję numeru rejestracyjnego, jeśli jest on pod indeksem 0, przypisujemy mu wartość null  
+                        {
+                            Numery[i] = Numery[i + 1];      //pozostałe pola pod indeksem 1 i 2 przestawiamy o jeden w dół
+                            Numery[i + 1] = Numery[i + 2];
+                        }
+                        if(i == 1)        // jeśli numer rejestracyjny który chcemy usunąc znajduje się pod indeksem 1, numer pod indeksem 0 zostaje bez zamin ale musimy przestawić numer pod indeksem 2 na indeks 1
+                        {
+                            Numery[i] = Numery[i + 1];
+                        }
+                        Console.WriteLine("Usunięto numer rejestracyjny."); //nie dodaje kolejnego sprawdzenie w przypadku wykrycia numeru rejestracyjnego pod indeksem 2 bo linia 172 automatycznie usunie ostatni element tablicy
+                        iloscSamochodow -= 1;                       // ilość samochodów zmniejszyła się o 1 a z nią wielkość tablicy, mechanizm z automatu usunie ostatni element tablicy
+                    }                                               // dlatego wcześniej trzeba podmienić indeksy
                     else if (nrRejestracyjny != Numery[i])
                     {                        
                         Console.WriteLine("Nie znaleziono podanego numeru pod indeksem: " + i);
@@ -234,8 +240,8 @@ namespace Zad_1
 
             Samochod.WypiszIloscSamochodow();
 
-            Samochod s3 = new Samochod("Fiat", "2000", 2, 650, 6.0, "S5XXX"); //testy
-            Samochod s4 = new Samochod("Audi", "A6", 5, 650, 6.0, "DW12345"); //testy
+            Samochod s3 = new Samochod("BMW", "2000", 3, 800, 8.0, "S5XXX"); //testowy samochód numer 3
+            Samochod s4 = new Samochod("Audi", "A6", 5, 650, 6.0, "DW12345"); //testowy samochód numer 4
 
             Console.WriteLine("\n\n\n");
             Console.WriteLine("Zadanie 1: \n");
@@ -265,17 +271,17 @@ namespace Zad_1
             o1.WypiszInfo(); //Wypisywanie informacji o właścicielu 
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja 0 \n");
 
-            o1.UsunSamochod(s1.NumerRejestracyjny);
+            o1.UsunSamochod(s2.NumerRejestracyjny);
             //o1.UsunSamochod("SWD12345");
             o1.WypiszInfo();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja po 1 wywolaniu metody UsunSamochod\n");
 
-            o1.UsunSamochod(s2.NumerRejestracyjny);
+            o1.UsunSamochod(s3.NumerRejestracyjny);
             //o1.UsunSamochod("DW23456");
             o1.WypiszInfo();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja po 2 wywolaniu metody UsunSamochod\n");
 
-            o1.UsunSamochod(s3.NumerRejestracyjny);
+            o1.UsunSamochod(s1.NumerRejestracyjny);
             //o1.UsunSamochod("SRB45677");
             o1.WypiszInfo();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja po 3 wywolaniu metody UsunSamochod\n");
