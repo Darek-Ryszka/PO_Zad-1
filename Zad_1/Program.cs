@@ -13,7 +13,7 @@ namespace Zad_1
         private string numerRejestracyjny;          
 
 
-        //konstruktor domyslny:
+        //Konstruktor domyslny:
         public Samochod()
         {
             marka = "nieznana";
@@ -24,7 +24,7 @@ namespace Zad_1
             iloscSamochodow = iloscSamochodow + 1;
             numerRejestracyjny = "nieznany";
         }
-        //konstruktor parametryczny:
+        //Konstruktor parametryczny:
         public Samochod(string _marka, string _model, int _iloscDrzwi, int _pojemnoscSilnika, double _srednieSpalanie, string _numerRejestracyjny)
         {
             marka = _marka;
@@ -35,7 +35,7 @@ namespace Zad_1
             iloscSamochodow += 1;
             numerRejestracyjny = _numerRejestracyjny;
         }
-        //metody klasy:
+        //Metody klasy:
         private double ObliczSpalanie(double dlugoscTrasy)
         {
             double spalanie = (srednieSpalanie * dlugoscTrasy) / 100;
@@ -62,7 +62,7 @@ namespace Zad_1
         {
             Console.WriteLine("Ilosc samochodów " + iloscSamochodow);
         }
-        // wlasciwosci klasy:
+        //WŁaŚciwosci klasy:
         public string Marka
         {
             get { return marka; }
@@ -100,7 +100,7 @@ namespace Zad_1
         }
 
     }
-    
+    //Nowa klasa:   
     public class Osoba 
     {
         private string imie;
@@ -110,27 +110,26 @@ namespace Zad_1
         private string[] Numery;
         
         
-
-        //konstruktor domyslny:
+        //Konstruktor domyslny:
         public Osoba()
         {
             imie = "nieznane";
             nazwisko = "nieznane";
             adresZamieszkania = "nieznany";
             iloscSamochodow = 0;
-            Numery = new string [3];           
+            Numery = new string [3]; //Tablica na przechowanie numerów rejestracyjnych          
         }
-        //konstruktor parametryczny:
+        //Konstruktor parametryczny:
         public Osoba(string _imie, string _nazwisko, string _adres, int _iloscSamochodow)
         {
             imie = _imie;
             nazwisko = _nazwisko;
             adresZamieszkania = _adres;
             iloscSamochodow = 0;
-            Numery = new string [3];            
+            Numery = new string [3]; //Tablica na przechowanie numerów rejestracyjnych         
         }
-        //metody klasy:
-        public void DodajSamochod(string nrRejestracyjny) 
+        //Metody klasy:
+        public void DodajSamochod(string nrRejestracyjny) //Metoda jako argument będzie przyjmować ciąg znaków string znajdujący się w polu obiektu klasy Samochód pod nazwą numerRejestracyjny.
         {
             if (iloscSamochodow >= 3)
             {
@@ -139,13 +138,13 @@ namespace Zad_1
             else
             {                 
                 Numery[iloscSamochodow] = nrRejestracyjny;
-                Console.WriteLine("Dodano numer rejestracyjny.");
+                Console.WriteLine("Dodano numer rejestracyjny."); //Tablica zwiększa się z każdym dodaniem numeru rejestracyjnego do osoby.
                 iloscSamochodow += 1;
             }
         
         }
 
-        public void UsunSamochod(string nrRejestracyjny)
+        public void UsunSamochod(string nrRejestracyjny) //Metoda usuwająca numer rejestracyjny przypisany do właściciela
         {
             Console.WriteLine("-----------------------------------------------");
             if (iloscSamochodow == 0)
@@ -158,23 +157,25 @@ namespace Zad_1
                 {                    
                     if (nrRejestracyjny == Numery[i])
                     {                       
-                        Numery[i] = null; //znajdujemy wartość którą chcemy usunąć i porównujemy z tablicą w której znajdują się numery rejestracyjne
-                        if (i == 0)       //sprawdzamy pozycję numeru rejestracyjnego, jeśli jest on pod indeksem 0, przypisujemy mu wartość null  
-                        {
-                            Numery[i] = Numery[i + 1];      //pozostałe pola pod indeksem 1 i 2 przestawiamy o jeden w dół
+                        Numery[i] = null;                   //Pobieramy wartość, którą chcemy usunąć, przekazaną jak argument i porównujemy z wartościami znajdującymi się w tablicy przechowującej numery rejestracyjne.
+                        if (i == 0)                         //Sprawdzamy czy numer rejestracyjny, który chcemy usunąć znajduje się w tablicy, jeśli tak, przypisujemy mu wartość null. 
+                        {                                   //Pozostawiając pod indeksem tablicy wartość null, będziemy mieli problem z jej poprawnym odczytem, dlatego stworzyłem dwa sprawdzenia.
+                            Numery[i] = Numery[i + 1];      //Jeśli szukany numer rejestracyjny do usunięcia znajduje się pod indeksem 0, to pozostałe pola pod indeksem 1 i 2 przestawiamy o jeden w dół.
                             Numery[i + 1] = Numery[i + 2];
                         }
-                        if(i == 1)        // jeśli numer rejestracyjny który chcemy usunąc znajduje się pod indeksem 1, numer pod indeksem 0 zostaje bez zamin ale musimy przestawić numer pod indeksem 2 na indeks 1
+                        if(i == 1)                          //Jeśli numer rejestracyjny, który chcemy usunąć znajduje się pod indeksem 1, numer pod indeksem 0 zostaje bez zamin ale musimy przestawić numer pod indeksem 2 na indeks 1.
                         {
                             Numery[i] = Numery[i + 1];
                         }
-                        Console.WriteLine("Usunięto numer rejestracyjny."); //nie dodaje kolejnego sprawdzenie w przypadku wykrycia numeru rejestracyjnego pod indeksem 2 bo linia 172 automatycznie usunie ostatni element tablicy
-                        iloscSamochodow -= 1;                       // ilość samochodów zmniejszyła się o 1 a z nią wielkość tablicy, mechanizm z automatu usunie ostatni element tablicy
-                    }                                               // dlatego wcześniej trzeba podmienić indeksy
+                        Console.WriteLine("Usunięto numer rejestracyjny.");     //Nie dodaje kolejnego sprawdzenie w przypadku wykrycia numeru rejestracyjnego pod indeksem 2, ponieważ linia 172 automatycznie usunie ostatni element tablicy.
+                        iloscSamochodow -= 1;                                   //Ilość samochodów zmniejszyła się o 1 a z nią wielkość tablicy, mechanizm z automatu usunie ostatni element tablicy, dlatego wcześniej trzeba zmienić indeksy.
+                    }                                                           
+                    /*
                     else if (nrRejestracyjny != Numery[i])
                     {                        
-                        Console.WriteLine("Nie znaleziono podanego numeru pod indeksem: " + i); //komunitak pomocniczy - do usunięcia w wersji ostatecznej
+                        Console.WriteLine("Nie znaleziono podanego numeru pod indeksem: " + i); //Sprawdzenie pomocnicze, pokazujące poprawność działania 
                     }
+                    */
                 }
             }
             Console.WriteLine("-----------------------------------------------");
@@ -185,16 +186,16 @@ namespace Zad_1
             Console.WriteLine("Imie: " + imie);
             Console.WriteLine("Nazwisko: " + nazwisko);
             Console.WriteLine("Adres zamieszkania: " + adresZamieszkania);
-            if(iloscSamochodow == 0)
+            if(iloscSamochodow == 0)                                                
             {
-                Console.WriteLine("Osoba nie ma przypisanych żadnych samochodów.");
+                Console.WriteLine("Osoba nie ma przypisanych żadnych samochodów."); //Spradzenie, czy ilość przypisanych samochodów wynosi 0.
             }
             for (int i = 1; i <= iloscSamochodow; i++)
             {
-                Console.WriteLine("Tablica numer:" + i + " :" + Numery[i - 1]);
+                Console.WriteLine("Tablica numer:" + i + " :" + Numery[i - 1]); //Wyświetlenie kolejnych przypisanych do osoby numerów rejestracyjnych
             }
         }
-        // wlasciwosci klasy:
+        //Wlasciwosci klasy:
         public string Imie
         {
             get { return imie; }
@@ -241,13 +242,13 @@ namespace Zad_1
             Samochod.WypiszIloscSamochodow();
 
 
-            //Zadanie_1
+            //Zadanie_1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
             Console.WriteLine("\n\n\n");
             Console.WriteLine("Zadanie 1: \n");
 
-            Samochod s3 = new Samochod("BMW", "2000", 3, 800, 8.0, "S5XXX"); //testowy samochód numer 3
-            Samochod s4 = new Samochod("Audi", "A6", 5, 650, 6.0, "DW12345"); //testowy samochód numer 4
+            Samochod s3 = new Samochod("BMW", "2000", 3, 800, 8.0, "S5XXX");    //Testowy obiekt klasy Samochod numer 3
+            Samochod s4 = new Samochod("Audi", "A6", 5, 650, 6.0, "DW12345");   //Testowy obiekt klasy Samochod numer 4
 
             Osoba o1 = new Osoba(); //Tworzenie nowego obiektu klasy Osoba
 
@@ -256,44 +257,34 @@ namespace Zad_1
             o1.Imie = "Jan";
             o1.Nazwisko = "Kowalski";
             o1.Adres = "44-200 Rybnik, Niepodległości 13";
-            /*
-            o1.DodajSamochod("DW23456"); //Dodawanie rejestracji do tablicy
-            o1.DodajSamochod("SWD12345"); //Dodawanie rejestracji do tablicy
-            o1.DodajSamochod("SRB45677"); //Dodawanie rejestracji do tablicy
-            */
-            o1.DodajSamochod(s1.NumerRejestracyjny); //Dodawanie rejestracji do tablicy
+
+            o1.DodajSamochod(s1.NumerRejestracyjny); //Dodawanie rejestracji do tablicy, wywołanie metody dodającej numer rejestracyjny z pola NumerRejestracyjny obiektu klasy Samochod do tablicy w obiekcie klasy Osoba.
             o1.DodajSamochod(s2.NumerRejestracyjny); //Dodawanie rejestracji do tablicy
             o1.DodajSamochod(s3.NumerRejestracyjny); //Dodawanie rejestracji do tablicy
 
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
-            o1.DodajSamochod(s4.NumerRejestracyjny); //Dodawanie rejestracji do tablicy
-            //o1.DodajSamochod("SWD45676"); //Próba przepełnienia tablicy
+            o1.DodajSamochod(s4.NumerRejestracyjny); //Dodawanie rejestracji do tablicy, próba przepełnienia tablicy
 
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
             o1.WypiszInfo(); //Wypisywanie informacji o właścicielu 
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja 0 \n");
 
-            o1.UsunSamochod(s2.NumerRejestracyjny);
-            //o1.UsunSamochod("SWD12345");
+            o1.UsunSamochod(s2.NumerRejestracyjny); //Usunięcie numeru rejestracyjnego obiektu s2
             o1.WypiszInfo();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja po 1 wywolaniu metody UsunSamochod\n");
 
-            o1.UsunSamochod(s3.NumerRejestracyjny);
-            //o1.UsunSamochod("DW23456");
+            o1.UsunSamochod(s3.NumerRejestracyjny); //Usunięcie numeru rejestracyjnego obiektu s3
             o1.WypiszInfo();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja po 2 wywolaniu metody UsunSamochod\n");
 
-            o1.UsunSamochod(s1.NumerRejestracyjny);
-            //o1.UsunSamochod("SRB45677");
+            o1.UsunSamochod(s1.NumerRejestracyjny); //Usunięcie numeru rejestracyjnego obiektu s1
             o1.WypiszInfo();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Informacja po 3 wywolaniu metody UsunSamochod\n");
 
-            o1.UsunSamochod(s4.NumerRejestracyjny);
-            //o1.UsunSamochod("DW23456"); //Próba usunięcia elementu z pustej tablicy
+            o1.UsunSamochod(s4.NumerRejestracyjny); //Próba usunięcia elementu pustej tablicy
 
             Console.ReadKey();
-
         }
     }
 }
