@@ -140,8 +140,7 @@ namespace Zad_1
                 Numery[iloscSamochodow] = nrRejestracyjny;
                 Console.WriteLine("Dodano numer rejestracyjny."); //Tablica zwiększa się z każdym dodaniem numeru rejestracyjnego do osoby.
                 iloscSamochodow += 1;
-            }
-        
+            }   
         }
 
         public void UsunSamochod(string nrRejestracyjny) //Metoda usuwająca numer rejestracyjny przypisany do właściciela
@@ -170,12 +169,6 @@ namespace Zad_1
                         Console.WriteLine("Usunięto numer rejestracyjny.");     //Nie dodaje kolejnego sprawdzenie w przypadku wykrycia numeru rejestracyjnego pod indeksem 2, ponieważ linia 172 automatycznie usunie ostatni element tablicy.
                         iloscSamochodow -= 1;                                   //Ilość samochodów zmniejszyła się o 1 a z nią wielkość tablicy, mechanizm z automatu usunie ostatni element tablicy, dlatego wcześniej trzeba zmienić indeksy.
                     }                                                           
-                    /*
-                    else if (nrRejestracyjny != Numery[i])
-                    {                        
-                        Console.WriteLine("Nie znaleziono podanego numeru pod indeksem: " + i); //Sprawdzenie pomocnicze, pokazujące poprawność działania 
-                    }
-                    */
                 }
             }
             Console.WriteLine("-----------------------------------------------");
